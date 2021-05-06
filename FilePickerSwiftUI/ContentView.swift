@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var shown = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Button(action: {
+                shown.toggle()}) {
+            Text("Documnet picker")
+        }.sheet(isPresented: $shown) {
+            DocumentPicker()
+        }
     }
 }
 
